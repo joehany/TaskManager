@@ -1,7 +1,7 @@
 USE [master]
 GO
 
-/****** Object:  Database [TaskManager]    Script Date: 3/1/2015 6:28:33 PM ******/
+/****** Object:  Database [TaskManager]    Script Date: 3/2/2015 7:25:14 PM ******/
 CREATE DATABASE [TaskManager]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -110,10 +110,12 @@ ALTER DATABASE [TaskManager] SET  READ_WRITE
 GO
 
 
+
+
 USE [TaskManager]
 GO
 
-/****** Object:  Table [dbo].[TaskList]    Script Date: 3/1/2015 6:29:40 PM ******/
+/****** Object:  Table [dbo].[TaskList]    Script Date: 3/2/2015 7:25:56 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -121,18 +123,20 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[TaskList](
-	[TaskListId] [uniqueidentifier] NOT NULL,
+	[Id] [uniqueidentifier] NOT NULL,
+	[DateCreated] [datetime] NOT NULL,
  CONSTRAINT [PK_TaskList] PRIMARY KEY CLUSTERED 
 (
-	[TaskListId] ASC
+	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
+
 USE [TaskManager]
 GO
 
-/****** Object:  Table [dbo].[TaskItem]    Script Date: 3/1/2015 6:29:19 PM ******/
+/****** Object:  Table [dbo].[TaskItem]    Script Date: 3/2/2015 7:26:12 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -140,16 +144,22 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[TaskItem](
-	[TaskItemId] [uniqueidentifier] NOT NULL,
-	[Name] [nvarchar](max) NOT NULL,
-	[Done] [bit] NOT NULL,
-	[TaskListId] [uniqueidentifier] NOT NULL
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+	[Id] [uniqueidentifier] NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+	[IsDone] [bit] NOT NULL,
+	[DateCreated] [datetime] NOT NULL,
+	[DateModified] [datetime] NOT NULL,
+	[TaskListId] [uniqueidentifier] NOT NULL,
+ CONSTRAINT [PK_TaskItem] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 
 GO
 
 ALTER TABLE [dbo].[TaskItem]  WITH CHECK ADD  CONSTRAINT [FK_TaskItem_TaskList] FOREIGN KEY([TaskListId])
-REFERENCES [dbo].[TaskList] ([TaskListId])
+REFERENCES [dbo].[TaskList] ([Id])
 GO
 
 ALTER TABLE [dbo].[TaskItem] CHECK CONSTRAINT [FK_TaskItem_TaskList]
