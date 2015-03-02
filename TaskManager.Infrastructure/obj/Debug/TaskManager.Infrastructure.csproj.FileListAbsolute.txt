@@ -1,0 +1,9 @@
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Infrastructure\bin\Debug\TaskManager.Infrastructure.dll.config
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Infrastructure\bin\Debug\TaskManager.Infrastructure.dll
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Infrastructure\bin\Debug\TaskManager.Infrastructure.pdb
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Infrastructure\bin\Debug\EntityFramework.dll
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Infrastructure\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Infrastructure\bin\Debug\EntityFramework.xml
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Infrastructure\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Infrastructure\obj\Debug\TaskManager.Infrastructure.dll
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Infrastructure\obj\Debug\TaskManager.Infrastructure.pdb
