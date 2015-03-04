@@ -20,19 +20,21 @@ namespace TaskManager.Services.Controllers
 
         public TaskList Get(Guid id)
         {
-            return _listManager.GetListById(id);
+            var list = _listManager.GetListById(id);
+            return list;
         }
 
-        public void Post([FromBody]string value)
+        public HttpResponseMessage Post()
         {
-        }
-
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        public void Delete(int id)
-        {
+            try
+            {
+                var list = _listManager.CreateList();
+                return Request.CreateResponse(HttpStatusCode.OK, list);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
         }
     }
 }

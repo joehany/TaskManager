@@ -1,11 +1,11 @@
-C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.DAL\obj\Debug\TaskManager.DAL.csprojResolveAssemblyReference.cache
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.DAL\bin\Debug\TaskManager.DAL.dll
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.DAL\bin\Debug\TaskManager.DAL.pdb
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.DAL\bin\Debug\EntityFramework.dll
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.DAL\bin\Debug\Ninject.dll
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.DAL\bin\Debug\TaskManager.Infrastructure.dll
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.DAL\bin\Debug\TaskManager.Infrastructure.pdb
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.DAL\bin\Debug\EntityFramework.xml
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.DAL\bin\Debug\Ninject.xml
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.DAL\obj\Debug\TaskManager.DAL.csprojResolveAssemblyReference.cache
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.DAL\obj\Debug\TaskManager.DAL.dll
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.DAL\obj\Debug\TaskManager.DAL.pdb
-C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.DAL\bin\Debug\Ninject.dll
-C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.DAL\bin\Debug\Ninject.xml

@@ -18,19 +18,53 @@ namespace TaskManager.BLL.Managers
 
         public TaskList GetListById(Guid id)
         {
-            return _dataUnit.ListRepository.Find(id);
+            return _dataUnit.ListRepository.GetIncluding("Items").SingleOrDefault(list => list.Id == id);
         }
 
-        public void CreateList(Guid id)
+        public TaskList CreateList()
         {
-            _dataUnit.ListRepository.Insert(new TaskList(){Id = id});
+            var list = new TaskList
+                {
+                    Id = GenerateNewGuid(),
+                    DateCreated = DateTime.Now
+                };
+            _dataUnit.ListRepository.Insert(list);
             _dataUnit.SaveChanges();
+            return list;
         }
 
         public List<TaskItem> GetListTasks(Guid listId)
         {
             return _dataUnit.TaskRepository.All.Where(item => item.TaskListId == listId).ToList();
         }
+        public TaskItem CreateTask(TaskItem newtTask)
+        {
+            newtTask.Id = GenerateNewGuid();
+            newtTask.DateCreated = DateTime.Now;
+            newtTask.DateModified = DateTime.Now;
+            _dataUnit.TaskRepository.Insert(newtTask);
+            _dataUnit.SaveChanges();
+            return newtTask;
+        }
+        public void UpdateTask(TaskItem updatedTask)
+        {
+            TaskItem foundTask = _dataUnit.TaskRepository.Find(updatedTask.Id);
+            foundTask.IsDone = updatedTask.IsDone;
+            foundTask.Name = updatedTask.Name;
+            foundTask.DateModified = DateTime.Now;
+            _dataUnit.SaveChanges();
+        }
 
+        public void DeleteTask(Guid id)
+        {
+            TaskItem foundTask = _dataUnit.TaskRepository.Find(id);
+            _dataUnit.TaskRepository.Remove(foundTask);
+            _dataUnit.SaveChanges();
+        }
+
+        private Guid GenerateNewGuid()
+        {
+            return Guid.NewGuid();
+        }
     }
 }

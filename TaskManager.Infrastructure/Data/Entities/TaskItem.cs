@@ -16,6 +16,7 @@ namespace TaskManager.Infrastructure.Data.Entities
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
         public Guid TaskListId { get; set; }
-        public TaskList TaskList { get; set; }
+        [ForeignKey("TaskListId")]
+        public virtual TaskList List { get; set; }
     }
 }

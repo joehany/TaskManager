@@ -9,8 +9,9 @@ namespace TaskManager.Infrastructure.Data.Entities
 {
     public class TaskList
     {
+        [Key]
         public Guid Id { get; set; }
         public DateTime DateCreated { get; set; }
-        public ICollection<TaskItem> TaskItems { get; set; } 
+        public virtual ICollection<TaskItem> Items { get; set; } 
     }
 }
