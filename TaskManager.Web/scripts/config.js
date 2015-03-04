@@ -1,4 +1,5 @@
 ﻿window.config =
 {
-    serverUrl: 'http://localhost:801'
+    serverUrl: 'http://services.joehany.com/'
+    //serverUrl: 'http://localhost:801'
 }

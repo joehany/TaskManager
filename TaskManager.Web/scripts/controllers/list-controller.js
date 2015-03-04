@@ -1,4 +1,4 @@
-﻿taskManager.controller("listController", function($scope, listRepository, $routeParams) {
+﻿taskManager.controller("listController", function($scope, listRepository, $routeParams,$location) {
     var id = $routeParams.id;
     if (id == undefined) {
         //todo:error
@@ -7,9 +7,15 @@
     }
     $scope.saveItem = function () {
         $scope.newItem.listId = $scope.list.Id;
-        listRepository.createNewItem($scope.newItem).then(function (createdItem) {
+        listRepository.createNewItem($scope.newItem).then(function(createdItem) {
             $scope.list.Items.push(createdItem);
+            $scope.newItem.name = "";
         });
-        ;
+       
+    };
+    $scope.createNewList = function () {
+        listRepository.createNewList().then(function (list) {
+            $location.path('/list/' + list.Id);
+        });
     };
 });
