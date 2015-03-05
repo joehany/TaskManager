@@ -8,6 +8,31 @@
     </div>
 </div>
 <div class="row">
+    <div class="col-md-4">
+        <div class="list-group">
+            <div class="list-group-item">
+                <span class="badge">{{list.Id}}</span>
+                List Id:
+            </div>
+            <div class="list-group-item">
+                <span class="badge">
+                    <time-ago from-time="{{list.DateCreated}}" />
+                </span>
+                Created:
+            </div>
+            <div class="list-group-item">
+                <span class="badge">
+                    <time-ago from-time="{{list.DateModified}}" />
+                </span>
+                Modified:
+            </div>
+            <div class="list-group-item">
+                <div class="progress">
+                    <div class="progress-bar" ng-style="{width : ( getPercentage() + '%' ) }">{{getPercentage()}}%</div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="col-md-8">
         <div class="list-group">
             <div class="list-group-item active">
@@ -24,18 +49,9 @@
                 </div>
             </div>
             <div class="list-group-item" ng-repeat="item in list.Items">
-                <input id="checkSlave" type="checkbox" ng-checked="{{item.IsDone}}">{{item.Name}}
+                <input id="checkSlave" type="checkbox" ng-checked="{{item.IsDone}}">
+                <a href="#" editable-text="item.Name" onbeforesave="updateTask($data, item.Id)">{{ item.Name || "empty" }}</a>
             </div>
         </div>
     </div>
-    <ul class="list-group col-md-4">
-        <li class="list-group-item">
-            <span class="badge">{{list.Id}}</span>
-            List Id
-        </li>
-        <li class="list-group-item">
-            <span class="badge">{{list.DateCreated | date:"MM/dd/yyyy 'at' h:mma"}}</span>
-            Created
-        </li>
-    </ul>
 </div>

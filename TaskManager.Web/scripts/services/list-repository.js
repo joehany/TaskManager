@@ -35,9 +35,9 @@
             $http.post(url).success(deferred.resolve).error(deferred.reject);
             return deferred.promise;
         },
-        updateItem: function () {
+        updateItem: function (id,task) {
             var deferred = $q.defer();
-            $http.post(window.config.serverUrl + '/api/list').success(deferred.resolve).error(deferred.reject);
+            $http.put(window.config.serverUrl + '/api/task/'+id,task).success(deferred.resolve).error(deferred.reject);
             return deferred.promise;
         },
         deleteItem: function () {

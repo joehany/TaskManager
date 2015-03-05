@@ -1,4 +1,4 @@
-﻿var taskManager = angular.module("taskManager", ['ngRoute']);
+﻿var taskManager = angular.module("taskManager", ['ngRoute', 'timeago', 'xeditable']);
 taskManager.config(function ($routeProvider) {
         $routeProvider
             .when('/list/:id',
@@ -12,4 +12,6 @@ taskManager.config(function ($routeProvider) {
                     controller: 'homeController'
                 });
 
-    });
+}).run(function (editableOptions) {
+    editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+});;

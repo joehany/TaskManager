@@ -1,0 +1,10 @@
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Infrastructure\bin\Release\TaskManager.Infrastructure.dll.config
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Infrastructure\bin\Release\TaskManager.Infrastructure.dll
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Infrastructure\bin\Release\TaskManager.Infrastructure.pdb
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Infrastructure\bin\Release\EntityFramework.dll
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Infrastructure\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Infrastructure\bin\Release\EntityFramework.xml
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Infrastructure\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Infrastructure\obj\Release\TaskManager.Infrastructure.csprojResolveAssemblyReference.cache
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Infrastructure\obj\Release\TaskManager.Infrastructure.dll
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Infrastructure\obj\Release\TaskManager.Infrastructure.pdb

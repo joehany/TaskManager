@@ -44,11 +44,13 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="lib\xeditable.min.js" />
     <Content Include="scripts\app.js" />
     <Content Include="scripts\config.js" />
     <Content Include="scripts\controllers\home-controller.js" />
     <Content Include="scripts\controllers\list-controller.js" />
     <Content Include="scripts\services\list-repository.js" />
+    <Content Include="scripts\directives\time-ago.js" />
     <Content Include="styles\bootstrap\bootstrap-theme.css" />
     <Content Include="styles\bootstrap\bootstrap-theme.min.css" />
     <Content Include="styles\bootstrap\bootstrap.css" />
@@ -67,6 +69,8 @@
     <Content Include="lib\bootstrap.min.js" />
     <Content Include="lib\jquery-1.9.0.js" />
     <Content Include="lib\jquery-1.9.0.min.js" />
+    <Content Include="styles\main.css" />
+    <Content Include="styles\xeditable.css" />
     <Content Include="templates\home.html" />
     <Content Include="templates\list.html" />
     <Content Include="Web.config" />

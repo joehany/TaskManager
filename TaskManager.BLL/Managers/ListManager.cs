@@ -26,7 +26,8 @@ namespace TaskManager.BLL.Managers
             var list = new TaskList
                 {
                     Id = GenerateNewGuid(),
-                    DateCreated = DateTime.Now
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now
                 };
             _dataUnit.ListRepository.Insert(list);
             _dataUnit.SaveChanges();
@@ -43,6 +44,8 @@ namespace TaskManager.BLL.Managers
             newtTask.DateCreated = DateTime.Now;
             newtTask.DateModified = DateTime.Now;
             _dataUnit.TaskRepository.Insert(newtTask);
+            TaskList foundList = _dataUnit.ListRepository.Find(newtTask.TaskListId);
+            foundList.DateModified = DateTime.Now;
             _dataUnit.SaveChanges();
             return newtTask;
         }
@@ -52,6 +55,8 @@ namespace TaskManager.BLL.Managers
             foundTask.IsDone = updatedTask.IsDone;
             foundTask.Name = updatedTask.Name;
             foundTask.DateModified = DateTime.Now;
+            TaskList foundList = _dataUnit.ListRepository.Find(updatedTask.TaskListId);
+            foundList.DateModified = DateTime.Now;
             _dataUnit.SaveChanges();
         }
 

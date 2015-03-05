@@ -12,6 +12,7 @@ namespace TaskManager.Infrastructure.Data.Entities
         [Key]
         public Guid Id { get; set; }
         public DateTime DateCreated { get; set; }
+        public DateTime DateModified{ get; set; }
         public virtual ICollection<TaskItem> Items { get; set; } 
     }
 }
