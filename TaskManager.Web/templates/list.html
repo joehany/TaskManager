@@ -27,8 +27,9 @@
                 Modified:
             </div>
             <div class="list-group-item">
+                Done:
                 <div class="progress">
-                    <div class="progress-bar" ng-style="{width : ( getPercentage() + '%' ) }">{{getPercentage()}}%</div>
+                    <div class="progress-bar progress-bar-success" ng-style="{width : ( getPercentage() + '%' ) }">{{getPercentage()}}%</div>
                 </div>
             </div>
         </div>
@@ -49,7 +50,7 @@
                 </div>
             </div>
             <div class="list-group-item" ng-repeat="item in list.Items">
-                <input id="checkSlave" type="checkbox" ng-checked="{{item.IsDone}}">
+                <input id="checkSlave" type="checkbox" ng-model="item.IsDone" ng-change="changeTaskStatus(item)" />
                 <a href="#" editable-text="item.Name" onbeforesave="updateTask($data, item.Id)">{{ item.Name || "empty" }}</a>
             </div>
         </div>

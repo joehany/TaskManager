@@ -28,6 +28,12 @@
             $scope.list.DateModified = updateTask.DateModified;
         });
     };
+    $scope.changeTaskStatus = function (task) {
+       
+        listRepository.updateItem(task).then(function (updateTask) {
+            $scope.list.DateModified = updateTask.DateModified;
+        });
+    };
     $scope.getPercentage = function () {
         try {
             var checked = 0;
