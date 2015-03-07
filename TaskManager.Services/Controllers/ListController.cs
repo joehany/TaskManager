@@ -17,11 +17,22 @@ namespace TaskManager.Services.Controllers
         {
             _listManager = listManager;
         }
-
-        public TaskList Get(Guid id)
+        public IEnumerable<TaskList> Get()
         {
-            var list = _listManager.GetListById(id);
-            return list;
+            var lists = _listManager.GetAlLists();
+            return lists;
+        }
+        public HttpResponseMessage Get(Guid id)
+        {
+            try
+            {
+                var list = _listManager.GetListById(id);
+                return Request.CreateResponse(HttpStatusCode.OK, list);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
         }
 
         public HttpResponseMessage Post()

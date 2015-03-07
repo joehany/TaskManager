@@ -15,7 +15,10 @@ namespace TaskManager.BLL.Managers
         {
             _dataUnit = dataUnit;
         }
-
+        public IEnumerable<TaskList> GetAlLists()
+        {
+            return _dataUnit.ListRepository.GetIncluding("Items");
+        }
         public TaskList GetListById(Guid id)
         {
             return _dataUnit.ListRepository.GetIncluding("Items").SingleOrDefault(list => list.Id == id);
@@ -49,13 +52,13 @@ namespace TaskManager.BLL.Managers
             _dataUnit.SaveChanges();
             return newtTask;
         }
-        public void UpdateTask(TaskItem updatedTask)
+        public void UpdateTask(Guid id,TaskItem updatedTask)
         {
-            TaskItem foundTask = _dataUnit.TaskRepository.Find(updatedTask.Id);
+            TaskItem foundTask = _dataUnit.TaskRepository.Find(id);
             foundTask.IsDone = updatedTask.IsDone;
             foundTask.Name = updatedTask.Name;
             foundTask.DateModified = DateTime.Now;
-            TaskList foundList = _dataUnit.ListRepository.Find(updatedTask.TaskListId);
+            TaskList foundList = _dataUnit.ListRepository.Find(foundTask.TaskListId);
             foundList.DateModified = DateTime.Now;
             _dataUnit.SaveChanges();
         }

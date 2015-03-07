@@ -1,4 +1,4 @@
-﻿var taskManager = angular.module("taskManager", ['ngRoute', 'timeago', 'xeditable']);
+﻿var taskManager = angular.module("taskManager", ['ngRoute','ngResource', 'timeago', 'xeditable']);
 taskManager.config(function ($routeProvider) {
         $routeProvider
             .when('/list/:id',

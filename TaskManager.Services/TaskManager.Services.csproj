@@ -155,10 +155,6 @@
       <Private>True</Private>
       <HintPath>..\packages\System.Spatial.5.2.0\lib\net40\System.Spatial.dll</HintPath>
     </Reference>
-    <Reference Include="TaskManager.Infrastructure, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Bin\TaskManager.Infrastructure.dll</HintPath>
-    </Reference>
     <Reference Include="WebActivatorEx">
       <HintPath>..\packages\WebActivatorEx.2.0.6\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
@@ -210,6 +206,10 @@
     <ProjectReference Include="..\TaskManager.DAL\TaskManager.DAL.csproj">
       <Project>{FDBA690D-39CF-4775-BEEC-6C908B625A55}</Project>
       <Name>TaskManager.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskManager.Infrastructure\TaskManager.Infrastructure.csproj">
+      <Project>{310786fa-a0a5-4be3-a563-6cd5f13bea33}</Project>
+      <Name>TaskManager.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

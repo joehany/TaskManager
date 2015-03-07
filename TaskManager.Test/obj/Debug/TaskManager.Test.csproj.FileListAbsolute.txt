@@ -2,4 +2,3 @@ C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManag
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Test\bin\Debug\TaskManager.Test.pdb
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Test\obj\Debug\TaskManager.Test.dll
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Test\obj\Debug\TaskManager.Test.pdb
-C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Test\obj\Debug\TaskManager.Test.csprojResolveAssemblyReference.cache

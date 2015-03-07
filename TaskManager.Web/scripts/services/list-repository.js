@@ -37,12 +37,13 @@
         },
         updateItem: function (task) {
             var deferred = $q.defer();
-            $http.put(window.config.serverUrl + '/api/task/'+task.Id,task).success(deferred.resolve).error(deferred.reject);
+            var url = window.config.serverUrl + '/api/task?id=' + task.Id + '&name=' + task.Name + "&isDone=" + task.IsDone;
+            $http.post(url).success(deferred.resolve).error(deferred.reject);
             return deferred.promise;
         },
-        deleteItem: function () {
+        deleteItem: function (id) {
             var deferred = $q.defer();
-            $http.post(window.config.serverUrl + '/api/list').success(deferred.resolve).error(deferred.reject);
+            $http.post(window.config.serverUrl + '/api/task/delete?id='+id).success(deferred.resolve).error(deferred.reject);
             return deferred.promise;
         }
     };

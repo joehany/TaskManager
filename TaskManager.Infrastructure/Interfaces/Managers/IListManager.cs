@@ -9,11 +9,12 @@ namespace TaskManager.Infrastructure.Interfaces.Managers
 {
     public interface IListManager
     {
+        IEnumerable<TaskList> GetAlLists();
         TaskList GetListById(Guid id);
         TaskList CreateList();
         List<TaskItem> GetListTasks(Guid listId);
         TaskItem CreateTask(TaskItem newTask);
-        void UpdateTask(TaskItem updatedTask);
+        void UpdateTask(Guid id, TaskItem updatedTask);
         void DeleteTask(Guid id);
     }
     

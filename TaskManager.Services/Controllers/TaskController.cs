@@ -37,11 +37,17 @@ namespace TaskManager.Services.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
             }
         }
-        public HttpResponseMessage Put(Guid id, TaskItem task)
+        [System.Web.Http.HttpPost]
+        public HttpResponseMessage Put(Guid id, string name, bool isDone)
         {
             try
             {
-                _listManager.UpdateTask(task);
+                var newtTask = new TaskItem
+                {
+                    Name = name,
+                    IsDone = isDone
+                };
+                _listManager.UpdateTask(id, newtTask);
                 return Request.CreateResponse(HttpStatusCode.OK);
 
             }
@@ -51,6 +57,7 @@ namespace TaskManager.Services.Controllers
             }
         }
 
+        [System.Web.Http.HttpPost]
         public HttpResponseMessage Delete(Guid id)
         {
             try
