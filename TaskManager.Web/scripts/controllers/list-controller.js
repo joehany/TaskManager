@@ -5,14 +5,22 @@
         //todo:error
     } else {
         listRepository.getListById(id).then(function (list) {
-            $scope.list = list;
-            localStorage.setItem("list", list.Id);
             $scope.gettingList = false;
+            if (list != "null") {
+                $scope.list = list;
+                localStorage.setItem("list", list.Id);
+
+            } else {
+                $scope.error = true;
+                $scope.errorTitle = "Ooops!";
+                $scope.errorMessage = "We didn't find a list with such id: " +id + "....  Please hit \"New List\" button to create a new list";
+            }
 
         },
             function (error) {
-                $scope.serverError = true;
-                $scope.serverErrormessage = error.Message;
+                $scope.error = true;
+                $scope.errorTitle = "Server Error!";
+                $scope.errorMessage = error.Message;
             });
     }
     $scope.saveItem = function () {
@@ -23,8 +31,9 @@
                 $scope.list.DateModified = createdItem.DateModified;
             },
             function (error) {
-                $scope.serverError = true;
-                $scope.serverErrormessage = error;
+                $scope.error = true;
+                $scope.errorTitle = "Server Error!";
+                $scope.errorMessage = error;
             });
 
     };
@@ -37,13 +46,15 @@
         if (name == "")
             return "Please enter task name";
         if (name != task.Name) {
+            
             task.Name = name;
             listRepository.updateItem(task).then(function () {
                 $scope.list.DateModified = new Date();
             },
             function (error) {
-                $scope.serverError = true;
-                $scope.serverErrormessage = error;
+                $scope.error = true;
+                $scope.errorTitle = "Server Error!";
+                $scope.errorMessage = error;
             });
         }
 
@@ -52,12 +63,14 @@
         listRepository.deleteItem(task.Id).then(function () {
             var index = $scope.list.Items.indexOf(task);
             if (index > -1) {
+                $scope.list.DateModified = new Date();
                 $scope.list.Items.splice(index, 1);
             }
         },
             function (error) {
-                $scope.serverError = true;
-                $scope.serverErrormessage = error;
+                $scope.error = true;
+                $scope.errorTitle = "Server Error!";
+                $scope.errorMessage = error;
             });
     };
     $scope.changeTaskStatus = function (task) {
@@ -65,8 +78,9 @@
             $scope.list.DateModified = new Date();
         },
             function (error) {
-                $scope.serverError = true;
-                $scope.serverErrormessage = error.value;
+                $scope.error = true;
+                $scope.errorTitle = "Server Error!";
+                $scope.errorMessage = error.value;
             });
     };
     $scope.getPercentage = function () {

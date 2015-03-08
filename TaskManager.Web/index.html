@@ -3,8 +3,8 @@
 <head>
     <title>Task Manager</title>
     <link href="styles/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link href="styles/main.css" rel="stylesheet" />
     <link href="styles/xeditable.css" rel="stylesheet" />
+    <link href="styles/main.css" rel="stylesheet" />
     <script src="lib/angular-min.js"></script>
     <script src="lib/angular-route-min.js"></script>
     <script src="lib/angular-resource.min.js"></script>
@@ -23,9 +23,9 @@
                 <div class="navbar-brand">Task Manager</div>
             </nav>
         </div>
-        <!--<div ng-show="loading" class="alert alert-info"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Loading...</div>-->
         <div ng-view></div>
     </div>
+    <div ng-show="loading" class="alert alert-info loader"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Loading...</div>
 
 </body>
 </html>

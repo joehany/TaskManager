@@ -1,23 +1,26 @@
 ﻿<div ng-show="gettingList" class="alert alert-dismissible alert-info">
     <h4>Please wait!</h4>
-    Getting your list...
+    We are getting your list...
 </div>
-<div ng-show="serverError" class="alert alert-dismissible alert-danger">
-    <h4>Server Error!</h4>
-    {{serverErrormessage}}
+<div ng-show="error" class="alert alert-dismissible alert-danger">
+    <h4>{{errorTitle}}</h4>
+    {{errorMessage}}
 </div>
 <div ng-hide="gettingList">
     <div class="row">
         <div class="col-lg-12">
             <div class="page-header">
                 <button class="btn btn-primary" ng-click="createNewList()" style="float: right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New List</button>
-                <h1 id="type">My List</h1>
+                <h1 id="type">Your List</h1>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-5">
             <div class="list-group">
+                <div class="list-group-item active">
+                    <strong>List details</strong>
+                </div>
                 <div class="list-group-item">
                     <span class="badge">{{list.Id}}</span>
                     List Id:
@@ -35,14 +38,14 @@
                     Modified:
                 </div>
                 <div class="list-group-item">
-                    Closed:
+                    Done:
                     <div class="progress">
                         <div class="progress-bar progress-bar-success" ng-style="{width : ( getPercentage() + '%' ) }">{{getPercentage()}}%</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-7">
             <div class="list-group">
                 <div class="list-group-item active">
                     <strong>Tasks</strong>
@@ -63,22 +66,14 @@
                 <div class="list-group-item" ng-repeat="item in list.Items">
                     <div class="row">
 
-                        <div class="col-md-7">
-                            <a href="#" editable-text="item.Name" onbeforesave="updateTask($data, item)">{{ item.Name || "empty" }}</a>
-
-                        </div>
-                        <div class="col-md-4">
-                            <div class="customCheckbox">
+                        <div class="col-md-12">
+                            <div class="customCheckbox" title="mark as done">
                                 <input type="checkbox" id="check_{{item.Id}}" ng-model="item.IsDone" ng-change="changeTaskStatus(item)" />
                                 <label for="check_{{item.Id}}"></label>
                             </div>
+                            <a href="#" editable-text="item.Name" onbeforesave="updateTask($data, item)">{{ item.Name || "empty" }}</a>
+                            <div title="remove" class="remove glyphicon glyphicon-trash" aria-hidden="true" ng-click="deleteTask(item)"></div>
                         </div>
-                        <div class="col-md-1">
-                            <button class="btn btn-danger btn-sm" ng-click="deleteTask(item)">
-                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                            </button>
-                        </div>
-
                     </div>
                 </div>
             </div>
