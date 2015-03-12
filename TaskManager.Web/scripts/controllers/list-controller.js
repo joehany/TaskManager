@@ -2,18 +2,21 @@
     $scope.gettingList = true;
     var id = $routeParams.id;
     if (id == undefined) {
-        //todo:error
+        $location.path('/');
+
     } else {
         listRepository.getListById(id).then(function (list) {
             $scope.gettingList = false;
             if (list != "null") {
                 $scope.list = list;
                 localStorage.setItem("list", list.Id);
+                list.DateModified += " GMT";
+                list.DateCreated += " GMT";
 
             } else {
                 $scope.error = true;
                 $scope.errorTitle = "Ooops!";
-                $scope.errorMessage = "We didn't find a list with such id: " +id + "....  Please hit \"New List\" button to create a new list";
+                $scope.errorMessage = "We didn't find a list with such id: " + id + "....  Please hit \"New List\" button to create a new list";
             }
 
         },
@@ -24,11 +27,11 @@
             });
     }
     $scope.saveItem = function () {
-        $scope.newItem.listId = $scope.list.Id;
-        listRepository.createNewItem($scope.newItem).then(
+        $scope.newItem.TaskListId = $scope.list.Id;
+        listRepository.createNewTask($scope.newItem).then(
             function (createdItem) {
                 $scope.list.Items.push(createdItem);
-                $scope.list.DateModified = createdItem.DateModified;
+                $scope.list.DateModified = new Date();
             },
             function (error) {
                 $scope.error = true;
@@ -42,13 +45,12 @@
             $location.path('/list/' + list.Id);
         });
     };
-    $scope.updateTask = function (name, task) {
+    $scope.updateTaskName = function (name, task) {
         if (name == "")
             return "Please enter task name";
         if (name != task.Name) {
-            
             task.Name = name;
-            listRepository.updateItem(task).then(function () {
+            listRepository.updateTask(task).then(function () {
                 $scope.list.DateModified = new Date();
             },
             function (error) {
@@ -60,7 +62,7 @@
 
     };
     $scope.deleteTask = function (task) {
-        listRepository.deleteItem(task.Id).then(function () {
+        listRepository.deleteTask(task.Id).then(function () {
             var index = $scope.list.Items.indexOf(task);
             if (index > -1) {
                 $scope.list.DateModified = new Date();
@@ -83,17 +85,28 @@
                 $scope.errorMessage = error.value;
             });
     };
-    $scope.getPercentage = function () {
+    $scope.doneTasks = function () {
         try {
             var checked = 0;
             for (var i = 0; i < $scope.list.Items.length; i++) {
                 if ($scope.list.Items[i].IsDone)
                     checked++;
             }
-            return Math.floor((checked / $scope.list.Items.length) * 100);
+            return checked;
         }
         catch (ex) {
             return 0;
         }
     };
+    $scope.getPercentage = function () {
+        try {
+            if ($scope.list.Items != null)
+                return Math.floor(($scope.doneTasks() / $scope.list.Items.length) * 100);
+            return 0;
+        } catch (ex) {
+            return 0;
+        }
+    };
+
+
 });

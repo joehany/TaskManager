@@ -1,6 +1,6 @@
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Web\bin\TaskManager.Web.dll.config
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Web\bin\TaskManager.Web.dll
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Web\bin\TaskManager.Web.pdb
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Web\obj\Debug\TaskManager.Web.csprojResolveAssemblyReference.cache
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Web\obj\Debug\TaskManager.Web.dll
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Web\obj\Debug\TaskManager.Web.pdb
-C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Web\obj\Debug\TaskManager.Web.csprojResolveAssemblyReference.cache

@@ -18,7 +18,7 @@
 
 }
 .btn { border-radius:0;text-transform: uppercase;}
-.list-group-item, .list-group-item:first-child, .list-group-item:last-child { border-radius:0;}
+.list-group-item, .list-group-item:first-child, .list-group-item:last-child, .progress, .progress-bar { border-radius:0;}
 .navbar-default .navbar-brand { text-transform: uppercase;}
 .list-group-item:hover { background: #F9F9F9;}
 input { border-radius:0 !important;}
@@ -50,7 +50,6 @@ input { border-radius:0 !important;}
 	height: 20px;
 	top: 0;
 	left: 0;
-	border-radius: 4px;
 
 	-webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
 	-moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
@@ -114,6 +113,7 @@ input { border-radius:0 !important;}
     top: calc(50% - 30px);
     left: calc(50% - 60px);
     z-index: 9999;
+    border-radius: 0;
 }
 #taskName {
     margin-bottom: 10px;

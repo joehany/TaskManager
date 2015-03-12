@@ -7,7 +7,7 @@ using TaskManager.Infrastructure.Interfaces.Managers;
 
 namespace TaskManager.BLL.Managers
 {
-    public class ListManager:IListManager
+    public class ListManager : IListManager
     {
         private readonly ITaskManagerDataUnit _dataUnit;
 
@@ -21,7 +21,12 @@ namespace TaskManager.BLL.Managers
         }
         public TaskList GetListById(Guid id)
         {
-            return _dataUnit.ListRepository.GetIncluding("Items").SingleOrDefault(list => list.Id == id);
+            var list = _dataUnit.ListRepository.GetIncluding("Items").SingleOrDefault(l => l.Id == id);
+            if (list != null)
+            {
+                list.Items = list.Items.OrderBy(k => k.DateCreated).ToList();
+            } 
+            return list;
         }
 
         public TaskList CreateList()
@@ -29,8 +34,8 @@ namespace TaskManager.BLL.Managers
             var list = new TaskList
                 {
                     Id = GenerateNewGuid(),
-                    DateCreated = DateTime.Now,
-                    DateModified = DateTime.Now
+                    DateCreated = DateTime.Now.ToUniversalTime(),
+                    DateModified = DateTime.Now.ToUniversalTime()
                 };
             _dataUnit.ListRepository.Insert(list);
             _dataUnit.SaveChanges();
@@ -44,22 +49,22 @@ namespace TaskManager.BLL.Managers
         public TaskItem CreateTask(TaskItem newtTask)
         {
             newtTask.Id = GenerateNewGuid();
-            newtTask.DateCreated = DateTime.Now;
-            newtTask.DateModified = DateTime.Now;
+            newtTask.DateCreated = DateTime.Now.ToUniversalTime();
+            newtTask.DateModified = DateTime.Now.ToUniversalTime();
             _dataUnit.TaskRepository.Insert(newtTask);
             TaskList foundList = _dataUnit.ListRepository.Find(newtTask.TaskListId);
-            foundList.DateModified = DateTime.Now;
+            foundList.DateModified = DateTime.Now.ToUniversalTime();
             _dataUnit.SaveChanges();
             return newtTask;
         }
-        public void UpdateTask(Guid id,TaskItem updatedTask)
+        public void UpdateTask(Guid id, TaskItem updatedTask)
         {
             TaskItem foundTask = _dataUnit.TaskRepository.Find(id);
             foundTask.IsDone = updatedTask.IsDone;
             foundTask.Name = updatedTask.Name;
-            foundTask.DateModified = DateTime.Now;
+            foundTask.DateModified = DateTime.Now.ToUniversalTime();
             TaskList foundList = _dataUnit.ListRepository.Find(foundTask.TaskListId);
-            foundList.DateModified = DateTime.Now;
+            foundList.DateModified = DateTime.Now.ToUniversalTime();
             _dataUnit.SaveChanges();
         }
 

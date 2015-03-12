@@ -1,6 +1,6 @@
 ﻿<div ng-show="gettingList" class="alert alert-dismissible alert-info">
     <h4>Please wait!</h4>
-    We are getting your list...
+    Getting your list...
 </div>
 <div ng-show="error" class="alert alert-dismissible alert-danger">
     <h4>{{errorTitle}}</h4>
@@ -38,7 +38,7 @@
                     Modified:
                 </div>
                 <div class="list-group-item">
-                    Done:
+                    Done: ({{doneTasks()}}/{{list.Items.length}})
                     <div class="progress">
                         <div class="progress-bar progress-bar-success" ng-style="{width : ( getPercentage() + '%' ) }">{{getPercentage()}}%</div>
                     </div>
@@ -54,7 +54,7 @@
                     <div class="row">
                         <form name="addTask">
                             <div class="col-md-8">
-                                <input type="text" id="taskName" placeholder="New Task" name="taskName" ng-model="newItem.name" class="form-control" required>
+                                <input type="text" id="taskName" placeholder="New Task" name="taskName" ng-model="newItem.Name" class="form-control" required>
                                 <div class="text-danger" ng-show="addTask.taskName.$error.required && addTask.taskName.$dirty">Pleas enter task name.</div>
                             </div>
                             <div class="col-md-4">
@@ -71,7 +71,7 @@
                                 <input type="checkbox" id="check_{{item.Id}}" ng-model="item.IsDone" ng-change="changeTaskStatus(item)" />
                                 <label for="check_{{item.Id}}"></label>
                             </div>
-                            <a href="#" editable-text="item.Name" onbeforesave="updateTask($data, item)">{{ item.Name || "empty" }}</a>
+                            <a href="#" editable-text="item.Name" onbeforesave="updateTaskName($data, item)">{{ item.Name || "empty" }}</a>
                             <div title="remove" class="remove glyphicon glyphicon-trash" aria-hidden="true" ng-click="deleteTask(item)"></div>
                         </div>
                     </div>

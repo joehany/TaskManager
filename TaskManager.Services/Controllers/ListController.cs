@@ -17,11 +17,7 @@ namespace TaskManager.Services.Controllers
         {
             _listManager = listManager;
         }
-        public IEnumerable<TaskList> Get()
-        {
-            var lists = _listManager.GetAlLists();
-            return lists;
-        }
+        
         public HttpResponseMessage Get(Guid id)
         {
             try

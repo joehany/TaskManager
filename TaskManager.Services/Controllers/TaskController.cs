@@ -20,34 +20,24 @@ namespace TaskManager.Services.Controllers
             _listManager = listManager;
         }
 
-        public HttpResponseMessage Post(string name, Guid listId)
+        public HttpResponseMessage Post([FromBody]TaskItem newtTask)
         {
             try
             {
-                var newtTask = new TaskItem
-                {
-                    Name = name,
-                    TaskListId = listId
-                };
                 var task = _listManager.CreateTask(newtTask);
-                return Request.CreateResponse(HttpStatusCode.OK,task);
+                return Request.CreateResponse(HttpStatusCode.OK, task);
             }
             catch (Exception ex)
             {
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
             }
         }
-        [System.Web.Http.HttpPost]
-        public HttpResponseMessage Put(Guid id, string name, bool isDone)
+
+        public HttpResponseMessage Put(Guid id, [FromBody]TaskItem updatedTask)
         {
             try
             {
-                var newtTask = new TaskItem
-                {
-                    Name = name,
-                    IsDone = isDone
-                };
-                _listManager.UpdateTask(id, newtTask);
+                _listManager.UpdateTask(id, updatedTask);
                 return Request.CreateResponse(HttpStatusCode.OK);
 
             }
@@ -57,7 +47,6 @@ namespace TaskManager.Services.Controllers
             }
         }
 
-        [System.Web.Http.HttpPost]
         public HttpResponseMessage Delete(Guid id)
         {
             try

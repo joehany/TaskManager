@@ -28,10 +28,12 @@ C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManag
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Services\bin\System.Web.WebPages.Razor.dll
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Services\bin\TaskManager.BLL.dll
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Services\bin\TaskManager.DAL.dll
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Services\bin\TaskManager.Infrastructure.dll
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Services\bin\WebActivatorEx.dll
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Services\bin\WebGrease.dll
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Services\bin\TaskManager.BLL.pdb
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Services\bin\TaskManager.DAL.pdb
+C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Services\bin\TaskManager.Infrastructure.pdb
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Services\bin\EntityFramework.xml
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Services\bin\EntityFramework.SqlServer.xml
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Services\bin\Newtonsoft.Json.xml
@@ -83,5 +85,3 @@ C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManag
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Services\obj\Debug\TaskManager.Services.csprojResolveAssemblyReference.cache
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Services\obj\Debug\TaskManager.Services.dll
 C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Services\obj\Debug\TaskManager.Services.pdb
-C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Services\bin\TaskManager.Infrastructure.dll
-C:\Users\joseph.hany\Documents\Visual Studio 2013\Projects\TaskManager\TaskManager.Services\bin\TaskManager.Infrastructure.pdb

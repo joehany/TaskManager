@@ -29,21 +29,22 @@
             $http.post(window.config.serverUrl + '/api/list').success(deferred.resolve).error(deferred.reject);
             return deferred.promise;
         },
-        createNewItem: function (newItem) {
+        createNewTask: function (newTask) {
             var deferred = $q.defer();
-            var url = window.config.serverUrl + '/api/task?name=' + newItem.name + "&listId=" + newItem.listId;
-            $http.post(url).success(deferred.resolve).error(deferred.reject);
+            var url = window.config.serverUrl + '/api/task';
+            $http.post(url, newTask).success(deferred.resolve).error(deferred.reject);
             return deferred.promise;
         },
-        updateItem: function (task) {
+        updateTask: function (task) {
             var deferred = $q.defer();
-            var url = window.config.serverUrl + '/api/task?id=' + task.Id + '&name=' + task.Name + "&isDone=" + task.IsDone;
-            $http.post(url).success(deferred.resolve).error(deferred.reject);
+            var url = window.config.serverUrl + '/api/task/' + task.Id ;
+            $http.put(url, task).success(deferred.resolve).error(deferred.reject);
             return deferred.promise;
         },
-        deleteItem: function (id) {
+        deleteTask: function (id) {
             var deferred = $q.defer();
-            $http.post(window.config.serverUrl + '/api/task/delete?id='+id).success(deferred.resolve).error(deferred.reject);
+            var url = window.config.serverUrl + '/api/task/' + id;
+            $http.delete(url).success(deferred.resolve).error(deferred.reject);
             return deferred.promise;
         }
     };
