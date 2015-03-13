@@ -31,7 +31,7 @@
         listRepository.createNewTask($scope.newItem).then(
             function (createdItem) {
                 $scope.list.Items.push(createdItem);
-                $scope.list.DateModified = new Date();
+                $scope.list.DateModified = new Date().toJSON();
             },
             function (error) {
                 $scope.error = true;
@@ -51,7 +51,7 @@
         if (name != task.Name) {
             task.Name = name;
             listRepository.updateTask(task).then(function () {
-                $scope.list.DateModified = new Date();
+                $scope.list.DateModified = new Date().toJSON();
             },
             function (error) {
                 $scope.error = true;
@@ -65,7 +65,7 @@
         listRepository.deleteTask(task.Id).then(function () {
             var index = $scope.list.Items.indexOf(task);
             if (index > -1) {
-                $scope.list.DateModified = new Date();
+                $scope.list.DateModified = new Date().toJSON();
                 $scope.list.Items.splice(index, 1);
             }
         },
@@ -76,8 +76,8 @@
             });
     };
     $scope.changeTaskStatus = function (task) {
-        listRepository.updateItem(task).then(function () {
-            $scope.list.DateModified = new Date();
+        listRepository.updateTask(task).then(function () {
+            $scope.list.DateModified = new Date().toJSON();
         },
             function (error) {
                 $scope.error = true;

@@ -39,4 +39,3 @@
     }); v.provider("$routeParams", function () { this.$get = function () { return {} } }); v.directive("ngView", y); y.$inject = ["$route", "$anchorScroll", "$compile", "$controller", "$animate"]
 })(window,
 window.angular);
-//# sourceMappingURL=angular-route.min.js.map

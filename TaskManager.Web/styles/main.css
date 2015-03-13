@@ -110,7 +110,13 @@ input { border-radius:0 !important;}
 .loader {
     position: fixed;
     width: 120px;
+    top: 45%;
+    top: -webkit-calc(50% - 30px);
+    top: -moz-calc(50% - 30px);
     top: calc(50% - 30px);
+    left: 45%;
+    left: -webkit-calc(50% - 60px);
+    left: -moz-calc(50% - 60px);
     left: calc(50% - 60px);
     z-index: 9999;
     border-radius: 0;

@@ -2,8 +2,7 @@
 
 'use strict';
 
-angular.module('timeago', [
-]).directive('timeAgo', ['timeAgo', 'nowTime', function (timeAgo, nowTime) {
+taskManager.directive('timeAgo', ['timeAgo', 'nowTime', function (timeAgo, nowTime) {
     return {
         restrict: 'EA',
         link: function (scope, elem, attrs) {
@@ -59,78 +58,6 @@ angular.module('timeago', [
                 months: '%d months',
                 year: 'about a year',
                 years: '%d years',
-                numbers: []
-            },
-            'de_DE': {
-                prefixAgo: 'vor',
-                prefixFromNow: null,
-                suffixAgo: null,
-                suffixFromNow: 'from now',
-                seconds: 'weniger als einer Minute',
-                minute: 'ca. einer Minute',
-                minutes: '%d Minuten',
-                hour: 'ca. einer Stunde',
-                hours: 'ca. %d Stunden',
-                day: 'einem Tag',
-                days: '%d Tagen',
-                month: 'ca. einem Monat',
-                months: '%d Monaten',
-                year: 'ca. einem Jahr',
-                years: '%d Jahren',
-                numbers: []
-            },
-            'he_IL': {
-                prefixAgo: null,
-                prefixFromNow: null,
-                suffixAgo: 'לפני',
-                suffixFromNow: 'מעכשיו',
-                seconds: 'פחות מדקה',
-                minute: 'כדקה',
-                minutes: '%d דקות',
-                hour: 'כשעה',
-                hours: 'כ %d שעות',
-                day: 'יום',
-                days: '%d ימים',
-                month: 'כחודש',
-                months: '%d חודשים',
-                year: 'כשנה',
-                years: '%d שנים',
-                numbers: []
-            },
-            'pt_BR': {
-                prefixAgo: null,
-                prefixFromNow: 'daqui a',
-                suffixAgo: 'atrás',
-                suffixFromNow: null,
-                seconds: 'menos de um minuto',
-                minute: 'cerca de um minuto',
-                minutes: '%d minutos',
-                hour: 'cerca de uma hora',
-                hours: 'cerca de %d horas',
-                day: 'um dia',
-                days: '%d dias',
-                month: 'cerca de um mês',
-                months: '%d meses',
-                year: 'cerca de um ano',
-                years: '%d anos',
-                numbers: []
-            },
-            'fr_FR': {
-                prefixAgo: 'il y a',
-                prefixFromNow: null,
-                suffixAgo: null,
-                suffixFromNow: 'from now',
-                seconds: 'moins d\'une minute',
-                minute: 'environ une minute',
-                minutes: '%d minutes',
-                hour: 'environ une heure',
-                hours: 'environ %d heures',
-                day: 'un jour',
-                days: '%d jours',
-                month: 'environ un mois',
-                months: '%d mois',
-                year: 'environ un an',
-                years: '%d ans',
                 numbers: []
             }
         }
